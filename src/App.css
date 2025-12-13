@@ -7,6 +7,38 @@
   flex-direction: column;
 }
 
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to right, #141E30, #243B55);
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+}
+
+.highlight {
+  color: #38ef7d;
+  text-shadow: 0 0 20px rgba(56, 239, 125, 0.4);
+}
+
 header {
   margin-bottom: 3rem;
 }
@@ -14,7 +46,9 @@ header {
 header h1 {
   font-size: 3rem;
   margin: 0;
-  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  /* Changed from blue gradient */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -47,7 +81,7 @@ main {
 
 .loading {
   margin-top: 2rem;
-  color: #00d2ff;
+  color: #38ef7d;
   font-size: 1.2rem;
   animation: pulse 1.5s infinite;
 }
