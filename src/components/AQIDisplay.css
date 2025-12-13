@@ -81,8 +81,33 @@
     font-weight: 600;
 }
 
+
 .lbl {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
     margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .aqi-card {
+        padding: 1.5rem;
+    }
+
+    .weather-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .aqi-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .aqi-value {
+        font-size: 3rem;
+    }
+
+    .location-header h2 {
+        font-size: 1.5rem;
+    }
 }
