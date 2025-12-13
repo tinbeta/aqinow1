@@ -59,6 +59,9 @@ function LocationInput({ onSearch }) {
                 </button>
             </div>
 
+            <p className="disclaimer-text">Lưu ý: Kết quả dựa trên máy đo gần với vị trí định vị nhất</p>
+            <p className="source-text">Dữ liệu được cung cấp bởi IQAir</p>
+
             <div className="other-location-label">Kiểm tra vị trí khác</div>
             <form onSubmit={handleSubmit} className="input-form">
                 <input

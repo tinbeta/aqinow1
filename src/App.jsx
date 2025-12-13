@@ -38,9 +38,7 @@ function App() {
     <div className="app-container">
       <header>
         <h1>AQI Now</h1>
-        <p>Nhập toạ độ để kiểm tra chất lượng không khí ngay lập tức.</p>
-        <p className="disclaimer">Lưu ý: Kết quả dựa trên máy đo gần với vị trí định vị nhất</p>
-        <p className="source-text">Dữ liệu được cung cấp bởi IQAir</p>
+
       </header>
 
       <main>
