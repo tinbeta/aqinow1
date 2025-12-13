@@ -52,6 +52,14 @@ function LocationInput({ onSearch }) {
 
     return (
         <div className="location-input-container">
+            <div className="my-location-section">
+                <span className="my-location-text">Kiểm tra chất lượng không khí ngay tại vị trí của tôi</span>
+                <button onClick={handleMyLocation} className="my-location-btn" disabled={loading}>
+                    {loading ? 'Đang lấy...' : 'Kiểm Tra'}
+                </button>
+            </div>
+
+            <div className="other-location-label">Kiểm tra vị trí khác</div>
             <form onSubmit={handleSubmit} className="input-form">
                 <input
                     type="text"
@@ -64,13 +72,6 @@ function LocationInput({ onSearch }) {
                     Tìm kiếm
                 </button>
             </form>
-
-            <div className="my-location-section">
-                <span className="my-location-text">Kiểm tra chất lượng không khí ngay tại vị trí của tôi</span>
-                <button onClick={handleMyLocation} className="my-location-btn" disabled={loading}>
-                    {loading ? 'Đang lấy...' : 'Kiểm Tra'}
-                </button>
-            </div>
 
             {error && <p className="error-msg">{error}</p>}
         </div>
