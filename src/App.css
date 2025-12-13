@@ -111,6 +111,22 @@ main {
 
 /* Footer styles removed or reused if needed */
 
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1200px;
+  }
+
+  .results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
 
   #root,
