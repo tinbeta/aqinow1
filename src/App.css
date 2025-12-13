@@ -1,0 +1,78 @@
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+}
+
+.source-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.2rem;
+}
+
+.disclaimer {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 1rem !important;
+  /* Add separation from title/desc */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading {
+  margin-top: 2rem;
+  color: #00d2ff;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.error-display {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 75, 75, 0.1);
+  border: 1px solid rgba(255, 75, 75, 0.3);
+  border-radius: 10px;
+  color: #ff4b4b;
+}
+
+/* Footer styles removed or reused if needed */

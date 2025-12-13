@@ -1,0 +1,83 @@
+.location-input-container {
+    margin-bottom: 2rem;
+}
+
+.input-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.coord-input {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    width: 300px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.coord-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.search-btn {
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+}
+
+.error-msg {
+    color: #ff4b4b;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.my-location-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.my-location-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.my-location-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #00d2ff;
+    background: rgba(0, 210, 255, 0.1);
+    color: #00d2ff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.my-location-btn:hover:not(:disabled) {
+    background: #00d2ff;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.my-location-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
