@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import LocationInput from './components/LocationInput';
 import AQIDisplay from './components/AQIDisplay';
 import AQIAnalysis from './components/AQIAnalysis';
@@ -10,6 +10,14 @@ function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const resultsRef = useRef(null);
+
+  useEffect(() => {
+    if (data && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [data]);
 
   const handleSearch = async (lat, lon) => {
     setLoading(true);
@@ -43,10 +51,10 @@ function App() {
         {error && <div className="error-display">{error}</div>}
 
         {data && (
-          <>
+          <div ref={resultsRef} className="results-container">
             <AQIDisplay data={data} />
             <AQIAnalysis aqi={data.current.pollution.aqius} />
-          </>
+          </div>
         )}
       </main>
     </div>

@@ -110,3 +110,24 @@ main {
 }
 
 /* Footer styles removed or reused if needed */
+
+@media (max-width: 600px) {
+
+  #root,
+  .app-container {
+    padding: 1rem;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}

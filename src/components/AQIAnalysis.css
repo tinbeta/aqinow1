@@ -43,5 +43,26 @@
 .aqi-analysis-card p {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+
     margin: 0;
+}
+
+@media (max-width: 600px) {
+    .aqi-analysis-card {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .aqi-analysis-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .aqi-analysis-card p {
+        font-size: 0.9rem;
+    }
 }
