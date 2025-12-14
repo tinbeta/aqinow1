@@ -10,7 +10,12 @@
 .app-container {
   min-height: 100vh;
   /* Use min-height instead of fixed height */
-  width: 100vw;
+  width: 100%;
+  /* Changed from 100vw to 100% */
+  flex: 1;
+  /* Match parent flex */
+  overflow-x: hidden;
+  /* Explicitly prevent horizontal scroll */
   padding: 0;
   margin: 0;
   display: flex;
@@ -19,7 +24,8 @@
   justify-content: flex-start;
   /* Start from top */
   align-items: center;
-  background: linear-gradient(to right, #141E30, #243B55);
+  background: #141E30;
+  /* Solid color for mobile matches body */
   overflow-y: auto;
   /* Allow main container to scroll */
 }
@@ -123,6 +129,13 @@
 
 /* Tablet & Desktop: Side-by-side if enough width */
 @media (min-width: 768px) {
+  .app-container {
+    justify-content: center;
+    /* Center vertically on desktop */
+    background: linear-gradient(to right, #141E30, #243B55);
+    /* Gradient only on desktop */
+  }
+
   .compact-layout {
     flex-direction: row;
     /* Side-by-side on desktop */

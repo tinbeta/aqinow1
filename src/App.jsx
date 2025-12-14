@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1 className="app-title">AQI Now</h1>
+        <h1 className="app-title">AQI-UV Now</h1>
         <p className="app-description">Chất lượng không khí ngay tại vị trí của tôi</p>
         <div className="header-info">
           <p>Lưu ý: Kết quả dựa trên máy đo gần với vị trí định vị nhất.</p>

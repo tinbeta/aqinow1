@@ -15,22 +15,34 @@
 }
 
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: #141E30;
   color: #fff;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
-  /* Removed overflow: hidden to allow natural scroll if needed */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Ensure body also hides overflow */
 }
 
 #root {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 600px) {
