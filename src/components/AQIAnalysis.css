@@ -10,6 +10,49 @@
     animation: slideUp 0.5s ease-out;
 }
 
+/* Compact AQIAnalysis */
+.aqi-analysis-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 0.8rem;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    /* Take remaining space */
+    overflow-y: auto;
+    /* Allow scroll inside if absolutely needed */
+    min-height: 0;
+    /* Important for scroll */
+}
+
+h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.analysis-section,
+.recommendation-section {
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.9rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;

@@ -1,142 +1,127 @@
 .app-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* Force column to stack header and content */
+  justify-content: flex-start;
+  /* Start from top */
+  align-items: center;
   background: linear-gradient(to right, #141E30, #243B55);
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: #fff;
+  overflow: hidden;
 }
 
-#root {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.header-info {
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
+  /* Smaller font size */
+  color: rgba(255, 255, 255, 0.4);
+  /* Slightly bumped opacity for readability at small size */
+  font-style: italic;
+  /* Italic style */
+  line-height: 1.4;
 }
 
-.title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  font-weight: 800;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  letter-spacing: -1px;
-}
-
-.highlight {
-  color: #38ef7d;
-  text-shadow: 0 0 20px rgba(56, 239, 125, 0.4);
-}
-
-header {
-  margin-bottom: 3rem;
-}
-
-header h1 {
-  font-size: 3rem;
+.header-info p {
   margin: 0;
+}
+
+.app-header {
+  text-align: center;
+  padding: 1rem 1rem 0.5rem 1rem;
+  /* Added horizontal padding */
+  flex-shrink: 0;
+  /* Dont shrink header */
+  width: 100%;
+  /* Ensure width is controlled */
+  box-sizing: border-box;
+  /* Include padding in width */
+}
+
+.app-title {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 800;
   background: linear-gradient(to right, #11998e, #38ef7d);
-  /* Changed from blue gradient */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-header p {
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.5rem;
+.app-description {
+  margin: 0.5rem 0 0.2rem 0;
+  color: #ffffff;
+  /* Fully bright */
+  font-size: 1.1rem;
+  /* Larger */
+  font-weight: 600;
+  /* Bolder */
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for pop */
 }
 
-
-
-main {
-  flex: 1;
+.compact-layout {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  /* Constrain width on larger screens */
+  flex: 1;
+  /* Take remaining height */
+  padding: 0 1rem 1rem 1rem;
+  /* Ensure horizontal padding */
+  box-sizing: border-box;
+  justify-content: flex-start;
+  /* Start from top, let gap handle spacing */
+  /* Distribute vertical space */
+  gap: 1rem;
+  /* Consistent gap */
+  min-height: 0;
+  /* Allow flex child to shrink below content size if needed (with overflow) */
+  overflow-y: auto;
+  /* Allow scrolling vertical if content really overflows safely */
 }
 
-.loading {
-  margin-top: 2rem;
+.loading-screen,
+.error-screen {
   color: #38ef7d;
   font-size: 1.2rem;
-  animation: pulse 1.5s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
-
-.error-display {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 75, 75, 0.1);
-  border: 1px solid rgba(255, 75, 75, 0.3);
-  border-radius: 10px;
+.error-screen {
   color: #ff4b4b;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Footer styles removed or reused if needed */
-
-@media (min-width: 1024px) {
-  .app-container {
-    max-width: 1200px;
+/* Tablet & Desktop: Side-by-side if enough width */
+@media (min-width: 768px) {
+  .app-header {
+    padding-top: 2rem;
   }
 
-  .results-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
+  .compact-layout {
+    flex-direction: row;
+    max-width: 1000px;
+    height: auto;
+    flex: 0 1 auto;
+    /* Don't force full height, let it size to content but constrained */
+    align-items: stretch;
     gap: 2rem;
-    width: 100%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    margin-bottom: auto;
+    /* Push up slightly if space allows */
     margin-top: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-
-  #root,
-  .app-container {
-    padding: 0.5rem;
-  }
-
-  header {
-    margin-bottom: 0.5rem;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  header p {
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
   }
 }
