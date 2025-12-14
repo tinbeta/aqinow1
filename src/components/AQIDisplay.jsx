@@ -2,7 +2,7 @@
 import React from 'react';
 import './AQIDisplay.css';
 
-function AQIDisplay({ data, uvIndex }) {
+function AQIDisplay({ data, uvIndex, onRefresh }) {
     if (!data) return null;
 
     const { city, country, current } = data;
@@ -53,6 +53,9 @@ function AQIDisplay({ data, uvIndex }) {
                         <span className="lbl">UV Index</span>
                     </div>
                 )}
+                <button className="refresh-data-btn" onClick={onRefresh}>
+                    Cập Nhật Dữ Liệu
+                </button>
             </div>
         </div>
     );

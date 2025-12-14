@@ -11,29 +11,31 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const getData = async (lat, lon) => {
-      try {
-        setLoading(true);
-        const [aqiResult, uvResult] = await Promise.all([
-          fetchAirQuality(lat, lon),
-          fetchUVIndex(lat, lon)
-        ]);
+  const fetchData = async (lat, lon) => {
+    try {
+      setLoading(true);
+      const [aqiResult, uvResult] = await Promise.all([
+        fetchAirQuality(lat, lon),
+        fetchUVIndex(lat, lon)
+      ]);
 
-        setData(aqiResult);
-        setUvIndex(uvResult);
-      } catch (err) {
-        setError(err.message || 'Không thể lấy dữ liệu');
-      } finally {
-        setLoading(false);
-      }
-    };
+      setData(aqiResult);
+      setUvIndex(uvResult);
+      setError(null); // Clear any previous errors on successful fetch
+    } catch (err) {
+      setError(err.message || 'Không thể lấy dữ liệu');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const handleRefresh = () => {
+    setLoading(true); // Set loading true when refresh is initiated
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          getData(latitude, longitude);
+          fetchData(latitude, longitude);
         },
         (err) => {
           setLoading(false);
@@ -44,9 +46,13 @@ function App() {
       setLoading(false);
       setError('Trình duyệt không hỗ trợ định vị.');
     }
+  };
+
+  useEffect(() => {
+    handleRefresh();
   }, []);
 
-  if (loading) return <div className="loading-screen">Dang tải dữ liệu...</div>;
+  if (loading) return <div className="loading-screen">Đang tải dữ liệu...</div>;
   if (error) return <div className="error-screen">{error}</div>;
 
   return (
@@ -62,7 +68,7 @@ function App() {
 
       {data && (
         <div className="compact-layout">
-          <AQIDisplay data={data} uvIndex={uvIndex} />
+          <AQIDisplay data={data} uvIndex={uvIndex} onRefresh={handleRefresh} />
           <div className="analysis-group">
             <AQIAnalysis aqi={data.current.pollution.aqius} />
             <UVAnalysis uvIndex={uvIndex} />

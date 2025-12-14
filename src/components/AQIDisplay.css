@@ -170,7 +170,8 @@
 
 .weather-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cols: 3 items top, UV+Button(span 2) bottom */
     gap: 0.5rem;
     width: 100%;
     margin-top: 1rem;
@@ -180,12 +181,49 @@
 .weather-item {
     background: rgba(255, 255, 255, 0.05);
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.refresh-data-btn {
+    /* Grid placement */
+    grid-column: span 2;
+    /* Span 2 columns to fit text */
+
+    margin: 0;
+    /* Remove top margin */
+    width: auto;
+    /* Hug text/grid area */
+    height: 100%;
+    /* Match height of other items */
+    padding: 0 1rem;
+    /* Horizontal padding for "bo sát" look but breathable */
+
+    background: rgba(56, 239, 125, 0.2);
+    border: 1px solid rgba(56, 239, 125, 0.5);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.9rem;
+    /* Slightly smaller to fit */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    /* Center text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-data-btn:hover {
+    background: rgba(56, 239, 125, 0.4);
+    box-shadow: 0 0 15px rgba(56, 239, 125, 0.3);
 }
 
 .weather-item .val {
