@@ -8,8 +8,9 @@
 }
 
 .app-container {
+  min-height: 100vh;
+  /* Use min-height instead of fixed height */
   width: 100vw;
-  height: 100vh;
   padding: 0;
   margin: 0;
   display: flex;
@@ -19,7 +20,8 @@
   /* Start from top */
   align-items: center;
   background: linear-gradient(to right, #141E30, #243B55);
-  overflow: hidden;
+  overflow-y: auto;
+  /* Allow main container to scroll */
 }
 
 .header-info {
@@ -90,8 +92,7 @@
   /* Consistent gap */
   min-height: 0;
   /* Allow flex child to shrink below content size if needed (with overflow) */
-  overflow-y: auto;
-  /* Allow scrolling vertical if content really overflows safely */
+  /* Removed overflow-y to allow natural flow within app-container */
   margin: 0 auto;
   /* Center horizontal if width < 100% */
 }
@@ -136,11 +137,8 @@
     height: auto;
     flex: 0 1 auto;
     /* Don't force full height, let it size to content but constrained */
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    margin-bottom: auto;
-    /* Push up slightly if space allows */
+    margin-bottom: 2rem;
+    /* Ensure bottom spacing */
     margin-top: 1rem;
   }
 }

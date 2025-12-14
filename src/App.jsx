@@ -61,7 +61,7 @@ function App() {
       </header>
 
       {data && (
-        <div className="compact-layout" style={{ overflowY: 'auto' }}>
+        <div className="compact-layout">
           <AQIDisplay data={data} uvIndex={uvIndex} />
           <div className="analysis-group">
             <AQIAnalysis aqi={data.current.pollution.aqius} />
