@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.analysis-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
 .app-container {
   width: 100vw;
   height: 100vh;
@@ -71,11 +80,11 @@
   /* Constrain width on larger screens */
   flex: 1;
   /* Take remaining height */
-  padding: 0 1rem 1rem 1rem;
-  /* Ensure horizontal padding */
+  padding: 0 1rem 2rem 1rem;
+  /* Added bottom padding for desktop clearance */
   box-sizing: border-box;
   justify-content: flex-start;
-  /* Start from top, let gap handle spacing */
+  /* Start from top */
   /* Distribute vertical space */
   gap: 1rem;
   /* Consistent gap */
@@ -83,6 +92,15 @@
   /* Allow flex child to shrink below content size if needed (with overflow) */
   overflow-y: auto;
   /* Allow scrolling vertical if content really overflows safely */
+  margin: 0 auto;
+  /* Center horizontal if width < 100% */
+}
+
+@media (max-width: 480px) {
+  .compact-layout {
+    padding: 0 1.5rem 2rem 1.5rem;
+    /* Slightly more side padding on mobile for balance if needed, or keep 1rem */
+  }
 }
 
 .loading-screen,
@@ -104,19 +122,20 @@
 
 /* Tablet & Desktop: Side-by-side if enough width */
 @media (min-width: 768px) {
-  .app-header {
-    padding-top: 2rem;
-  }
-
   .compact-layout {
     flex-direction: row;
-    max-width: 1000px;
+    /* Side-by-side on desktop */
+    align-items: stretch;
+    /* Stretch to fill height */
+    justify-content: center;
+    max-width: 1200px;
+    /* Wider constraint for desktop */
+    padding: 2rem;
+    /* More padding on desktop, including bottom */
+    gap: 2rem;
     height: auto;
     flex: 0 1 auto;
     /* Don't force full height, let it size to content but constrained */
-    align-items: stretch;
-    gap: 2rem;
-    padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     backdrop-filter: blur(10px);

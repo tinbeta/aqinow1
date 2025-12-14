@@ -2,7 +2,7 @@
 import React from 'react';
 import './AQIDisplay.css';
 
-function AQIDisplay({ data }) {
+function AQIDisplay({ data, uvIndex }) {
     if (!data) return null;
 
     const { city, country, current } = data;
@@ -47,6 +47,12 @@ function AQIDisplay({ data }) {
                     <span className="val">{weather.ws} m/s</span>
                     <span className="lbl">Gió</span>
                 </div>
+                {uvIndex !== null && uvIndex !== undefined && (
+                    <div className="weather-item">
+                        <span className="val">{uvIndex}</span>
+                        <span className="lbl">UV Index</span>
+                    </div>
+                )}
             </div>
         </div>
     );

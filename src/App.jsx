@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import AQIDisplay from './components/AQIDisplay';
 import AQIAnalysis from './components/AQIAnalysis';
-import { fetchAirQuality } from './services/api';
+import UVAnalysis from './components/UVAnalysis';
+import { fetchAirQuality, fetchUVIndex } from './services/api';
 import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
+  const [uvIndex, setUvIndex] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getAQI = async (lat, lon) => {
+    const getData = async (lat, lon) => {
       try {
-        const result = await fetchAirQuality(lat, lon);
-        setData(result);
+        setLoading(true);
+        const [aqiResult, uvResult] = await Promise.all([
+          fetchAirQuality(lat, lon),
+          fetchUVIndex(lat, lon)
+        ]);
+
+        setData(aqiResult);
+        setUvIndex(uvResult);
       } catch (err) {
-        setError(err.message || 'Không thể lấy dữ liệu AQI');
+        setError(err.message || 'Không thể lấy dữ liệu');
       } finally {
         setLoading(false);
       }
@@ -25,7 +33,7 @@ function App() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          getAQI(latitude, longitude);
+          getData(latitude, longitude);
         },
         (err) => {
           setLoading(false);
@@ -53,9 +61,12 @@ function App() {
       </header>
 
       {data && (
-        <div className="compact-layout">
-          <AQIDisplay data={data} />
-          <AQIAnalysis aqi={data.current.pollution.aqius} />
+        <div className="compact-layout" style={{ overflowY: 'auto' }}>
+          <AQIDisplay data={data} uvIndex={uvIndex} />
+          <div className="analysis-group">
+            <AQIAnalysis aqi={data.current.pollution.aqius} />
+            <UVAnalysis uvIndex={uvIndex} />
+          </div>
         </div>
       )}
     </div>

@@ -110,7 +110,7 @@
     justify-content: center;
     box-sizing: border-box;
     flex: 0 0 auto;
-    /* Allow sizing based on content, but don't stretch excessively */
+    /* Allow sizing based on content */
 }
 
 .location-header {
@@ -137,25 +137,32 @@
 
 .aqi-circle {
     width: 120px;
+    /* Reduced from 180px */
     height: 120px;
+    /* Reduced from 180px */
     border-radius: 50%;
     border: 8px solid;
+    /* Thinner border */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.2);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .aqi-value {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    /* Reduced from 4.5rem */
     font-weight: 800;
     line-height: 1;
 }
 
 .aqi-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    /* Reduced from 1.2rem */
+    font-weight: 500;
+    color: #fff;
     margin-top: 0.2rem;
     text-align: center;
     padding: 0 0.5rem;
@@ -163,10 +170,11 @@
 
 .weather-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.5rem;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    /* Slightly reduced visual gap handled by grid gap mostly */
 }
 
 .weather-item {

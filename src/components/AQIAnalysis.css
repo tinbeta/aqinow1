@@ -21,12 +21,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex: 1;
-    /* Take remaining space */
-    overflow-y: auto;
-    /* Allow scroll inside if absolutely needed */
-    min-height: 0;
-    /* Important for scroll */
+    flex: 0 0 auto;
+    /* Allow natural height based on content */
+    /* Removed overflow-y and min-height to allow full expansion */
 }
 
 h3 {
