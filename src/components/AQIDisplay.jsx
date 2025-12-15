@@ -5,7 +5,7 @@ import './AQIDisplay.css';
 function AQIDisplay({ data, uvIndex, onRefresh }) {
     if (!data) return null;
 
-    const { city, country, current } = data;
+    const { city, state, country, current } = data;
     const { pollution, weather } = current;
     const aqi = pollution.aqius;
 
@@ -23,8 +23,10 @@ function AQIDisplay({ data, uvIndex, onRefresh }) {
     return (
         <div className="aqi-card">
             <div className="location-header">
-                <h2>{city}</h2>
-                <span className="country">{country}</span>
+                <h2>{state || city}</h2>
+                <span className="sub-location">
+                    {(city && city !== (state || city)) ? `${city}, ${country}` : country}
+                </span>
             </div>
 
             <div className="aqi-circle-container">

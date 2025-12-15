@@ -34,7 +34,7 @@
     font-weight: 500;
 }
 
-.country {
+.sub-location {
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
 }
@@ -124,7 +124,7 @@
     font-weight: 700;
 }
 
-.location-header .country {
+.location-header .sub-location {
     font-size: 0.9rem;
     opacity: 0.7;
 }
@@ -274,7 +274,7 @@
         font-size: 1.1rem;
     }
 
-    .country {
+    .sub-location {
         font-size: 0.8rem;
     }
 
